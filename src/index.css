@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* src/index.css */
+
+/* Global body styles */
+body {
+    background: linear-gradient(-45deg, #0f172a, #1e3a8a, #9333ea, #3b0764);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+
+/* Resume Button */
+
+/* Shiny Resume Button Effect */
+.resume-shiny {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  color: black;
+  background-color:#fb7185; 
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.3s ease;
+  height: 40px; /* Match height of nav links */
+}
+
+.resume-shiny::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.resume-shiny.hover-shiny:hover::before {
+  animation: shine-on-hover 1.5s ease;
+}
+
+
+@keyframes shine-on-hover {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+/* --------------------------------------------------------------------------------------------------------------- */
+
