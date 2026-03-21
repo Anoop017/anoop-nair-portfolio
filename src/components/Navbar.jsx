@@ -9,15 +9,6 @@ const Navbar = () => {
 
   const links = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
 
-  const letterColors = {
-    M: '#47A248',  // MongoDB
-    E: '#D32F2F',  // Express
-    R: '#61DBFB',  // React
-    N: '#3C873A'   // Node.js
-  };
-
-  const MERNLetters = ['M', 'E', 'R', 'N'];
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -33,52 +24,14 @@ const Navbar = () => {
         }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
-        {/* Fancy MERN Branding */}
+        {/* Header with Full Stack Engineer Title */}
+
         <motion.a
           href="#home"
-          className="flex items-center text-3xl sm:text-4xl font-bold cursor-pointer"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: {
-              transition: {
-                staggerChildren: 0.2
-              }
-            }
-          }}
+          className="flex items-center text-2xl sm:text-3xl font-bold"
         >
-          <div className="flex tracking-normal"> {/* Reduced letter spacing */}
-            {MERNLetters.map((letter, index) => (
-              <motion.span
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.1, ease: 'easeInOut' }}
-                whileHover={{
-                  color: letterColors[letter],
-                  textShadow: `0px 0px 10px ${letterColors[letter]}`,
-                  y: -4,
-                  transition: { duration: 0.1, ease: 'easeOut' }
-                }}
-                className="transition-all px-1 sm:px-2 py-1 rounded-md"
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </div>
-
-          {/* "stack engineer" text with subtle pop-in animation */}
-          <motion.span
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
-            className="ml-2 text-lg sm:text-2xl font-semibold text-gray-300 mt-1"
-
-          >
-            stack engineer
-          </motion.span>
+          <span className="text-white">Full Stack</span>
+          <span className="ml-2 text-cyan-400">Developer</span>
         </motion.a>
 
 

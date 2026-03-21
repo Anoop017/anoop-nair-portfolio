@@ -6,8 +6,8 @@ import {
 } from 'react-icons/fa';
 import {
   SiTailwindcss, SiRedux, SiMongodb, SiMysql, SiExpress,
-  SiPostman, SiVercel,
-  SiReact, SiReactbootstrap,
+  SiPostman, SiVercel, SiRedis,
+  SiReactbootstrap, SiNextdotjs, SiNestjs, SiPostgresql, SiOpenstack, SiNetlify 
 } from 'react-icons/si';
 import { MdOutlineDraw } from 'react-icons/md';
 import { RiTeamLine } from 'react-icons/ri';
@@ -21,6 +21,7 @@ const skillCategories = [
       { name: 'CSS', icon: <FaCss3Alt /> },
       { name: 'JavaScript', icon: <FaJs /> },
       { name: 'React', icon: <FaReact /> },
+      { name: 'Next.js', icon: <SiNextdotjs /> },
       { name: 'React Bootstrap', icon: <SiReactbootstrap /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
       { name: 'Redux', icon: <SiRedux /> },
@@ -32,6 +33,7 @@ const skillCategories = [
     skills: [
       { name: 'Node.js', icon: <FaNodeJs /> },
       { name: 'Express.js', icon: <SiExpress /> },
+      { name: 'Nest.js', icon: <SiNestjs /> },
       { name: 'RESTful APIs', icon: <FaDatabase /> },
     ],
   },
@@ -39,8 +41,9 @@ const skillCategories = [
     title: 'Databases',
     skills: [
       { name: 'MongoDB', icon: <SiMongodb /> },
-
       { name: 'MySQL', icon: <SiMysql /> },
+      { name: 'PostgreSQL ', icon: <SiPostgresql  /> },
+      { name: 'Redis', icon: <SiRedis /> },
     ],
   },
   {
@@ -48,7 +51,8 @@ const skillCategories = [
     skills: [
 
       { name: 'AWS', icon: <FaAws /> },
-
+      { name: 'OpenStack', icon: <SiOpenstack  /> },
+      { name: 'Netlify', icon: <SiNetlify  /> },
       { name: 'Vercel', icon: <SiVercel /> },
     ],
   },

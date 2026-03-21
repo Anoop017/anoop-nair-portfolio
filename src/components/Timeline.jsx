@@ -3,30 +3,24 @@ import { GraduationCap, Briefcase } from "lucide-react";
 
 const timelineData = [
   {
-    icon: <GraduationCap size={20} />,
-    title: "Diploma in Mechanical Engineering",
-    org: "DTE Kerala",
-    duration: "2017 - 2020",
+    icon: <Briefcase size={20} />,
+    title: "Customer Engineer",
+    org: "Schindler India Pvt. Ltd.",
+    duration: "2021 - 2024",
+  },
+
+  {
+    icon: <Briefcase size={20} />,
+    title: "Graduage Engineer Trainee",
+    org: "MNE Components India Pvt Ltd",
+    duration: "2024 - 2026",
   },
   {
-      icon: <Briefcase size={20} />,
-      title: "Customer Engineer",
-      org: "Schindler India Pvt. Ltd.",
-      duration: "2021 - 2024",
-    },
-   
-    {
-      icon: <GraduationCap size={20} />,
-      title: "B.E. in Mechanical Engineering",
-      org: "SPPU (Pune University)",
-      duration: "2023 - ongoing",
-    },
-    {
-        icon: <Briefcase size={20} />,
-        title: "Full Stack Developer",
-        org: "Freelancing",
-        duration: "2024 - Present",
-    }
+    icon: <Briefcase size={20} />,
+    title: "Full Stack Developer",
+    org: "Cloud Flex Technologies",
+    duration: "2026 - Present",
+  }
 ];
 
 const Timeline = () => {

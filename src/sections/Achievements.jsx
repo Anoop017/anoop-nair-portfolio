@@ -21,7 +21,7 @@ const Achievements = () => {
     <section className="py-16 px-6 bg-[#0e161c] text-white" id="achievements">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-[#3dd0e3]">
-          Achievements & Certifications 🏆
+          Achievements & Certifications
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8">
