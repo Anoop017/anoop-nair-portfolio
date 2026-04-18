@@ -3,29 +3,58 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaEnvelope, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 const Contact = () => {
   const form = useRef();
   const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isSending, setIsSending] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    setSuccess(false);
+    setErrorMessage('');
 
-    emailjs
-      .sendForm(
-        'service_pgkzp1s',
-        'template_7oiwzwp',
-        form.current,
-        'kmsrBovD8hS9RrOc_'
-      )
-      .then(
-        () => {
-          setSuccess(true);
-          form.current.reset();
-        },
-        (error) => {
-          console.error('EmailJS Error:', error);
-        }
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setErrorMessage(
+        'Email service configuration is missing. Please add your EmailJS keys to the .env file.'
       );
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form.current,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setSuccess(true);
+      form.current.reset();
+    } catch (error) {
+      const emailJsMessage =
+        error?.text ||
+        error?.message ||
+        'Unable to send your message right now. Please try again later.';
+
+      if (emailJsMessage.toLowerCase().includes('invalid grant')) {
+        setErrorMessage(
+          'The contact service is temporarily disconnected. Please reconnect the Gmail account in EmailJS and try again.'
+        );
+      } else {
+        setErrorMessage(emailJsMessage);
+      }
+
+      console.error('EmailJS Error:', error);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -87,15 +116,20 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="w-full py-3 bg-[#3dd0e3] text-black font-bold rounded hover:bg-[#25a9bc] transition duration-300"
+          disabled={isSending}
+          className="w-full py-3 bg-[#3dd0e3] text-black font-bold rounded hover:bg-[#25a9bc] transition duration-300 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          Send Message
+          {isSending ? 'Sending...' : 'Send Message'}
         </button>
 
         {success && (
           <p className="text-green-400 mt-4 text-center">
             ✅ Your message has been sent!
           </p>
+        )}
+
+        {errorMessage && (
+          <p className="mt-4 text-center text-red-400">{errorMessage}</p>
         )}
       </form>
     </section>
