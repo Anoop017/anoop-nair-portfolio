@@ -18,7 +18,7 @@ const timelineData = [
   {
     icon: <Briefcase size={20} />,
     title: "Full Stack Developer",
-    org: "Cloud Flex Technologies",
+    org: "Comprint Tech Solutions Pvt Ltd",
     duration: "2026 - Present",
   }
 ];
