@@ -2,34 +2,35 @@
 import React from 'react';
 
 const projects = [
-  {
+    {
     id: 1,
+    title: 'Hospital Dashboard',
+    image: '/Project4.png',
+    url: 'https://hospital-dashboard-v3.netlify.app/',
+    description: 'A full-stack hospital dashboard with multiple backend services hosted on AWS EC2.',
+  },
+  {
+    id: 2,
     title: 'CineSapiens',
     image: '/Project1.png',
     url: 'https://cinesapiens.netlify.app/',
     description: 'A movie explorer app powered by TMDB API using React, Vite & Tailwind.',
   },
   {
-    id: 2,
+    id: 3,
     title: 'QuizNest',
     image: '/Project2.png',
     url: 'https://quiz-nest-site.netlify.app/',
     description: 'A colorful and educational quiz site with emojis and geography games.',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Rick & Morty API',
     image: '/Project3.png',
     url: 'https://rick-and-morty-selector-api.netlify.app/',
     description: 'Character selector app using Rick & Morty API, styled with Tailwind.',
   },
-  {
-    id: 4,
-    title: 'Hospital Patient Care Dashboard',
-    image: '/Project4.png',
-    url: 'https://hospital-patient-dashboard-frontend.netlify.app/',
-    description: 'A Full Stack Hospital Patient Care Dashboard',
-  },
+
 ];
 
 const Projects = () => {
